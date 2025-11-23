@@ -26,7 +26,7 @@
 <!-- 
 DELETE THIS SAMPLE before publishing to GitHub Pages !!!
 This is a sample image, to show how to add images to your page. To learn more options, please refer [this](https://projects.ce.pdn.ac.lk/docs/faq/how-to-add-an-image/)
-![Sample Image](./images/sample.png) 
+![Sample Image](/docs/imagessample.png) 
 -->
 
 
@@ -42,7 +42,7 @@ The main goal of this research is to optimize the RISC-V processing node network
 ## Related work
 ## A. Spiking Neural Networks
 
-<!--![Sample Image](./images/snn.png) -->
+<!--![Sample Image](/docs/imagessnn.png) -->
 
 Spiking neural networks fall in the category of artificial neural networks. Several layers of neurons connected by synapses make up an ANN. SNNs follow more complex design rules and represent a newer variant of ANNs, considered to be a third-generation neural network. It resembles the activities of the brain more closely by incorporating time. SNNs transmit spikes as events throughout the neural network. A spike is considered a rapid change of voltage that occurs over a short period of time. When a synapse receives an action potential or a spike from one of its pre-synaptic neurons, it will transmit the spike to its post synaptic neurons. This transmission leads to an update of the postsynaptic neuron’s membrane potential which is influenced by factors such as the weight of the synapses and other neuron parameters.
 
@@ -56,24 +56,24 @@ The [OpenSpike](https://github.com/sfmth/OpenSpike) project by Modaresi, F. et a
 
 ## Methodology
 
-![Sample Image](./images/main.png) 
+![Sample Image](/docs/imagesmain.png) 
 
 The proposed design consists of RISC-V processing nodes specialised to perform operations required to implement spiking networks. The nodes are interconnected using a network interface attached to each processing node. A routing framework is used to negotiate communication between the nodes. Each processing node is responsible for managing one or more
 logical neurons. The interconnectivity between nodes enables communication between logical neurons that span across multiple nodes. The architecture adopts an event-driven messaging mechanism to effectively emulate the activity of the spiking
 neurons. The motivation for using a RISC-V processing node network lies in the ability to maintain configurability and programmability at the hardware level. This flexibility will be leveraged to support various spiking neuron model
 architectures.
 
-![Sample Image](./images/single_neruon.png) 
+![Sample Image](/docs/imagessingle_neruon.png) 
 
 ## Experiment Setup and Implementation
 Once the architecture was completed and tested via simulation, it was implemented on an FPGA device, specifically the DE2-115 by Altera. To confirm the implementation, a small-scale SNN was tested on the device.
-![Sample Image](./images/small_snn.png) 
+![Sample Image](/docs/imagessmall_snn.png) 
 
 In terms of the number of neurons that can be simulated on the design, we have restricted it to 1,024. This was done with the aim of efficiently supporting this number of neurons in terms of power and time. An SNN with 994 neurons was successfully simulated on the design for the purpose of MNIST classification.
 
 Additionally, an architectural experiment was conducted to differentiate the benefits of using multiple FIFO (First In, First Out) buffers at the output side of the neuron interconnect, as shown in the design view. The objective of the experiment was to observe the difference in operating frequency between using a single FIFO buffer and dedicated FIFO buffers from the neuron interconnect to the neurons. Using the results of this experiment, we were able to find the right balance between resource usage and time efficiency. The circuit made for the timing analysis is shown below. 
 
-![Sample Image](./images/fifo_circuit.png) 
+![Sample Image](/docs/imagesfifo_circuit.png) 
 
 ## Results and Analysis
 
@@ -86,7 +86,7 @@ The below video shows the simualtion of the SNN shown above in the experiment se
 
 The resuts of having a single FIFO buffer and dedicated FIFO buffers can be seen in the graph below.
 
-![Sample Image](./images/fifo.png) 
+![Sample Image](/docs/imagesfifo.png) 
 
 It can be observed that the operating frequency declines sharply as the number of neurons increases when a single FIFO buffer is placed at the output of the network interconnect leading to the accumulator units. Conversely, with dedicated FIFO buffers for each accumulator unit, the frequency remains relatively stable, showing only minor variations within a certain range. This stability is attributed to the absence of bottlenecks as the system scales.
 
